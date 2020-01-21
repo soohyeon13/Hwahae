@@ -4,5 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 data class ProductResponse (
     @SerializedName("body")
-    val productList : List<Product>? = null
+    val productList : List<Product> = emptyList()
 )

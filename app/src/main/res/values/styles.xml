@@ -12,11 +12,18 @@
     <style name="EditTextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
         <item name="boxBackgroundColor">#FFFFFF</item>
         <item name="boxStrokeColor">#FFFFFF</item>
-        <item name="boxCornerRadiusTopStart">16dp</item>
-        <item name="boxCornerRadiusTopEnd">16dp</item>
-        <item name="boxCornerRadiusBottomStart">16dp</item>
-        <item name="boxCornerRadiusBottomEnd">16dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginBottom">12dp</item>
+        <item name="boxCornerRadiusTopStart">10dp</item>
+        <item name="boxCornerRadiusTopEnd">10dp</item>
+        <item name="boxCornerRadiusBottomStart">10dp</item>
+        <item name="boxCornerRadiusBottomEnd">10dp</item>
         <item name="android:drawableStart">@drawable/ic_search_24px</item>
+    </style>
+
+    <style name="spinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:background">@drawable/spinner_shape</item>
     </style>
 
 </resources>

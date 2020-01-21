@@ -1,5 +1,6 @@
 package kr.ac.jejunu.hwahae.ui.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.AdapterView
@@ -20,9 +21,8 @@ class ProductListAdapter :
         }
     }
 
-    fun setProduct(product : List<Product>) {
-        this.productList = product
-        notifyDataSetChanged()
+    fun setProducts(product : List<Product>) {
+        this.productList = ArrayList(product)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) : ProductViewHolder {

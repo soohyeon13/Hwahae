@@ -16,12 +16,14 @@ interface ProductService {
     @GET("prod/products")
     fun skinTypeList(@Query("skin_type") skin: String,@Query("page") page : Int): Observable<ProductResponse>
 
+    @Headers("Content-Type: application/json")
     @GET("products?skin_type={skin}&page={pageNum}")
     fun skinTypePageList(
         @Path("skin") skin: String
         , @Path("pageNum") pageNum: Int
     ): Observable<ProductResponse>
 
+    @Headers("Content-Type: application/json")
     @GET("products?skin_type={skin}%search={keyword}")
     fun keywordList(
         @Path("skin") skin: String,

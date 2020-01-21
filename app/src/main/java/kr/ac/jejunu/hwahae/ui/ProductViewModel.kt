@@ -10,33 +10,44 @@ import kr.ac.jejunu.hwahae.model.ProductService
 import kr.ac.jejunu.hwahae.model.data.Product
 import kr.ac.jejunu.hwahae.ui.adapter.ProductListAdapter
 
-class ProductViewModel(private val productAdapter : ProductListAdapter
-                       ,private val api : ProductService)
-    : BaseViewModel() {
+class ProductViewModel(
+    private val productAdapter: ProductListAdapter,
+    private val api: ProductService
+) : BaseViewModel() {
 
-    private val TAG :String = "ProductViewModel"
     private val _items = MutableLiveData<List<Product>>()
     private val _adapter = MutableLiveData<ProductListAdapter>().apply { value = productAdapter }
 
-    val items : LiveData<List<Product>> get() = _items
-    val adapter : LiveData<ProductListAdapter> get() = _adapter
+    val items: LiveData<List<Product>> get() = _items
+    val adapter: LiveData<ProductListAdapter> get() = _adapter
 
     init {
-        getProduct()
+        getProducts()
     }
 
-    private fun getProduct() {
+    private fun getProducts() {
         addDisposable(
             api.defaultOliyList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe({
-                    userResponse -> _items.value = userResponse.productList
-                    Log.d(TAG, userResponse.productList?.get(0)?.title)
-                }, {
-                    error -> Log.e("product List",error.message)
+                .subscribe({ userResponse ->
+                    _items.value = userResponse.productList
+                }, { error ->
+                    Log.e("product List", error.message)
                 })
         )
     }
 
+    fun typeProducts(skinType : String,page : Int) {
+        addDisposable(
+            api.skinTypeList(skinType,page)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe ({ userResponse ->
+                    _items.value = userResponse.productList
+                },{ error ->
+                Log.e("product List",error.message)
+            })
+        )
+    }
 }
