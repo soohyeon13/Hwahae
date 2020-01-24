@@ -1,5 +1,6 @@
 package kr.ac.jejunu.hwahae.util
 
+import android.util.Log
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView

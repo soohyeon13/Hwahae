@@ -38,7 +38,7 @@ class ProductViewModel(
         )
     }
 
-    fun typeProducts(skinType : String,page : Int) {
+    fun getTypeProducts(skinType : String, page : Int) {
         addDisposable(
             api.skinTypeList(skinType,page)
                 .subscribeOn(Schedulers.io())

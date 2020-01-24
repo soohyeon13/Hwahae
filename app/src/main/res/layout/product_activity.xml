@@ -8,6 +8,9 @@
         <variable
             name="productViewModel"
             type="kr.ac.jejunu.hwahae.ui.ProductViewModel" />
+        <variable
+            name="handler"
+            type="kr.ac.jejunu.hwahae." />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

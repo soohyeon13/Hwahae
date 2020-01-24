@@ -41,7 +41,7 @@ class ProductActivity : BaseActivity<ProductActivityBinding>(R.layout.product_ac
                 id: Long
             ) {
                 skinType = skinTypes[position]
-                binding.productViewModel?.typeProducts(skinType,1)
+                binding.productViewModel?.getTypeProducts(skinType,1)
             }
 
         }
